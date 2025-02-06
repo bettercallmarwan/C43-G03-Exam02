@@ -12,7 +12,6 @@ namespace ConsoleApp1
         {
         }
 
-
         private void displayExamHeader()
         {
             Console.WriteLine($"==========================================================================================================================================");
@@ -27,24 +26,26 @@ namespace ConsoleApp1
         {
             displayExamHeader();
 
-
             int entered_answer_int;
             List<Answer> entered_answer_list = new List<Answer>();
             double total_grade = 0, student_grade = 0;
             bool answerFlag;
-            for(int i = 0; i < this.questions.Count; i++)
+            for (int i = 0; i < this.questions.Count; i++)
             {
-                Console.WriteLine($"{i+1}. {questions[i]}");
+                Console.WriteLine($"{i + 1}. {questions[i].Body}");
+
+                for (int j = 0; j < questions[i].Answers.Count; j++)
+                {
+                    Console.WriteLine($"{j + 1}. {questions[i].Answers[j].AnswerText}");
+                }
 
                 do
                 {
-                    Console.Write("Enter Answer: ");
+                    Console.Write("Enter Answer (1, 2, 3): ");
                     answerFlag = int.TryParse(Console.ReadLine(), out entered_answer_int);
-                } while (!answerFlag || (entered_answer_int != 1 && entered_answer_int != 2));
+                } while (!answerFlag || (entered_answer_int < 1 || entered_answer_int > 3));
 
                 string entered_answer_text = questions[i].Answers[entered_answer_int - 1].AnswerText;
-
-
                 Answer student_answer = new Answer(entered_answer_int, entered_answer_text);
                 entered_answer_list.Add(student_answer);
 
@@ -60,16 +61,13 @@ namespace ConsoleApp1
 
             for (int i = 0; i < this.questions.Count; i++)
             {
-                Console.WriteLine($"Q.{i+1} {questions[i].Body}");
+                Console.WriteLine($"Q.{i + 1} {questions[i].Body}");
                 Console.WriteLine($"Entered answer: {entered_answer_list[i].AnswerText}");
                 Console.WriteLine($"Correct answer: {this.questions[i].RightAnswer.AnswerText}");
-
                 Console.WriteLine($"==================================================================================================================================================");
             }
 
             Console.WriteLine($"Your score is : {student_grade}/{total_grade}");
         }
-
-        
     }
 }
