@@ -29,17 +29,19 @@ namespace ConsoleApp1
             int exam_type;
             Console.WriteLine("Enter Type Of Exam:\n(1) Practical\n(2) Final");
 
-            do {
+            do
+            {
                 Console.Write("Enter Valid Input: ");
                 flag = int.TryParse(Console.ReadLine(), out exam_type);
-            }while (!flag || (exam_type != 1 && exam_type != 2));
+            } while (!flag || (exam_type != 1 && exam_type != 2));
 
             Console.Clear();
 
             flag = false;
             int duration, number_of_questions;
 
-            do {
+            do
+            {
                 Console.Write("Enter Exam Duration (Minutes): ");
                 flag = int.TryParse(Console.ReadLine(), out duration);
             } while (!flag || duration <= 0);
@@ -64,7 +66,7 @@ namespace ConsoleApp1
 
             if (exam_type == 1)
             {
-                for(int i = 0; i < number_of_questions; i++)
+                for (int i = 0; i < number_of_questions; i++)
                 {
                     do
                     {
@@ -72,7 +74,8 @@ namespace ConsoleApp1
                         questionBody = Console.ReadLine();
                     } while (string.IsNullOrWhiteSpace(questionBody));
 
-                    do {
+                    do
+                    {
                         Console.Write("Enter Question Mark: ");
                         flag = int.TryParse(Console.ReadLine(), out mark);
                     } while (!flag || mark <= 0);
@@ -80,7 +83,7 @@ namespace ConsoleApp1
 
                     flag = false;
 
-                    
+
                     do
                     {
                         Console.WriteLine("Enter Right Answer:\n(1) True\n(2) False");
@@ -100,7 +103,7 @@ namespace ConsoleApp1
             }
             else
             {
-                for(int i = 0; i < number_of_questions; i++)
+                for (int i = 0; i < number_of_questions; i++)
                 {
                     int question_type;
                     do
@@ -109,7 +112,6 @@ namespace ConsoleApp1
                         flag = int.TryParse(Console.ReadLine(), out question_type);
                     } while (!flag || (question_type != 1 && question_type != 2));
                     Console.Clear();
-
 
                     if (question_type == 1)
                     {
@@ -164,7 +166,7 @@ namespace ConsoleApp1
 
                         List<Answer> answers = new List<Answer>();
 
-                        for(int j = 0; j < 3; j++)
+                        for (int j = 0; j < 3; j++)
                         {
                             string answer;
                             do
@@ -197,7 +199,13 @@ namespace ConsoleApp1
                 }
                 Exam = new FinalExam(duration, number_of_questions, questions);
             }
-        } 
+        }
         #endregion
+
+        public Subject(int id, string name)
+        {
+            this.subjectId = id;
+            this.subjectName = name;
+        }
     }
 }

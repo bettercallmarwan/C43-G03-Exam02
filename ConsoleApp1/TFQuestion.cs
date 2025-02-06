@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     internal class TFQuestion : Question
     {
-        public TFQuestion(string body, double mark, Answer rightAnswer) : base("True of False Question", body, mark, new List<Answer> { new Answer(1, "True"), new Answer(2, "False") }, rightAnswer)
+        public TFQuestion(string body, double mark, Answer rightAnswer) : base("True or False Question", body, mark, new List<Answer> { new Answer(1, "True"), new Answer(2, "False") }, rightAnswer)
         {
         }
 

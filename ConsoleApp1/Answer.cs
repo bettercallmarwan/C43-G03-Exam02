@@ -25,14 +25,6 @@ namespace ConsoleApp1
             this.answerText = answerText;
         }
 
-        //public override bool Equals(object? obj)
-        //{
-        //    if (obj is null) return false;
-
-        //    if (obj is not Answer other) return false;
-
-        //    return this.answerId == other.answerId && this.answerText == other.answerText;
-        //}
 
         public override bool Equals(object obj)
         {

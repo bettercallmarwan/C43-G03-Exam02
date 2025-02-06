@@ -7,7 +7,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Subject subject = new Subject();
+            Subject subject = new Subject(1, "Math");
             subject.createExam();
 
             Console.WriteLine("Do You Want To Start The Exam? (y | any other key): ");
