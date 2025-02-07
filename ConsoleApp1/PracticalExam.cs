@@ -32,7 +32,7 @@ namespace ConsoleApp1
             bool answerFlag;
             for (int i = 0; i < this.questions.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {questions[i].Body}");
+                Console.WriteLine($"{i + 1}. {questions[i]}");
 
                 for (int j = 0; j < questions[i].Answers.Count; j++)
                 {
@@ -49,7 +49,13 @@ namespace ConsoleApp1
                 Answer student_answer = new Answer(entered_answer_int, entered_answer_text);
                 entered_answer_list.Add(student_answer);
 
-                if (student_answer.AnswerText.Equals(this.questions[i].RightAnswer.AnswerText, StringComparison.OrdinalIgnoreCase))
+                //if (student_answer.AnswerText.Equals(this.questions[i].RightAnswer.AnswerText, StringComparison.OrdinalIgnoreCase))
+                //{
+                //    student_grade += this.questions[i].Mark;
+                //}
+
+
+                if (student_answer.AnswerId.Equals(this.questions[i].RightAnswer.AnswerId))
                 {
                     student_grade += this.questions[i].Mark;
                 }

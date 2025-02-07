@@ -26,6 +26,15 @@ namespace ConsoleApp1
         }
 
 
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj is Answer other)
+        //    {
+        //        return this.AnswerText.Equals(other.AnswerText, StringComparison.OrdinalIgnoreCase);
+        //    }
+        //    return false;
+        //}
+
         public override bool Equals(object obj)
         {
             if (obj is Answer other)

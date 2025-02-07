@@ -10,7 +10,7 @@ namespace ConsoleApp1
             Subject subject = new Subject(1, "Math");
             subject.createExam();
 
-            Console.WriteLine("Do You Want To Start The Exam? (y | any other key): ");
+            Console.WriteLine("Do You Want To Start The Exam? (Y | Any Other Key): ");
             string input = Console.ReadLine().Trim().ToLower();
 
             if (input == "y")
